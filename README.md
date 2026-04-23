@@ -133,6 +133,7 @@ Due to size limitations, the dataset is not included in this repository.
 
 **Ashu Yadav**
 
+*Linkdin: https://www.linkedin.com/in/ashu-yadav111/
 * GitHub: https://github.com/Ashu-Yadav-01
 * Portfolio: https://ashu-yadav-portfolio.vercel.app/
 
