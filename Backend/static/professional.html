@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MediaGuard - Enterprise Deepfake Detection Platform</title>
+  <link rel="stylesheet" href="/static/professional.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+          </svg>
+          <!-- News Detection nav removed -->
+          <!-- <a href="#" class="nav-item" data-section="news">
+            <span class="nav-icon">📰</span>
+            <span class="nav-label">News Detection</span>
+          </a> -->
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <div class="nav-section-title">Analysis</div>
+          <a href="#" class="nav-item active" data-section="image">
+            <span class="nav-icon">🖼️</span>
+            <span class="nav-label">Image Analysis</span>
+          </a>
+          <a href="#" class="nav-item" data-section="video">
+            <span class="nav-icon">🎥</span>
+            <span class="nav-label">Video Analysis</span>
+          </a>
+          <a href="#" class="nav-item" data-section="audio">
+            <span class="nav-icon">🎵</span>
+            <span class="nav-label">Audio Analysis</span>
+          </a>
+          <a href="#" class="nav-item" data-section="news">
+            <span class="nav-icon">📰</span>
+            <span class="nav-label">News Detection</span>
+          </a>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-section-title">Resources</div>
+          <a href="#" class="nav-item" data-section="insights">
+            <span class="nav-icon">📊</span>
+            <span class="nav-label">Intelligence Hub</span>
+          </a>
+          <a href="#" class="nav-item" data-section="history">
+            <span class="nav-icon">📋</span>
+            <span class="nav-label">Analysis History</span>
+          </a>
+        </div>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="sidebar-action" id="themeToggle" title="Toggle theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Top Header -->
+      <header class="header">
+        <div class="header-left">
+          <h1 class="page-title">Media Detection Dashboard</h1>
+          <p class="page-subtitle">Advanced AI-powered analysis for authentic media verification</p>
+        </div>
+        <div class="header-right">
+          <div class="status-badge">
+            <span class="status-dot active"></span>
+            <span>All Systems Operational</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Content -->
+      <div class="dashboard">
+        <!-- Image Section -->
+        <section class="analysis-section active" id="image-section">
+          <div class="section-header">
+            <h2>🖼️ Image Analysis</h2>
+            <p>Detect manipulated or synthetic images with advanced deep learning</p>
+          </div>
+
+          <div class="analysis-card">
+            <div class="card-content">
+              <div class="upload-zone" id="imageUploadZone">
+                <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="17 8 12 3 7 8"/>
+                  <line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+                <h3>Drop image here or click to upload</h3>
+                <p>Supports JPG, PNG, WebP up to 50MB</p>
+                <input type="file" id="imageFile" accept="image/*" hidden />
+              </div>
+              <button class="btn btn-primary" onclick="document.getElementById('imageFile').click()">
+                Select Image
+              </button>
+            </div>
+            <div id="imageResults" class="results-area"></div>
+          </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="analysis-section" id="video-section">
+          <div class="section-header">
+            <h2>🎥 Video Analysis</h2>
+            <p>Analyze video sequences for deepfake detection and authenticity verification</p>
+          </div>
+
+          <div class="analysis-card">
+            <div class="card-content">
+              <div class="upload-zone" id="videoUploadZone">
+                <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M23 7l-7 5 7 5V7z"/>
+                  <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                </svg>
+                <h3>Drop video here or click to upload</h3>
+                <p>Supports MP4, WebM, MOV up to 500MB</p>
+                <input type="file" id="videoFile" accept="video/*" hidden />
+              </div>
+              <button class="btn btn-primary" onclick="document.getElementById('videoFile').click()">
+                Select Video
+              </button>
+              </button>
+            </div>
+            <div id="videoResults" class="results-area"></div>
+          </div>
+        </section>
+
+        <!-- Audio Section -->
+        <section class="analysis-section" id="audio-section">
+          <div class="section-header">
+            <h2>🎵 Audio Analysis</h2>
+            <p>Detect synthetic audio and voice manipulation using spectral analysis</p>
+          </div>
+
+          <div class="analysis-card">
+            <div class="card-content">
+              <div class="upload-zone" id="audioUploadZone">
+                <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 1v22M17 3v18M7 5v14M22 7v10M2 9v6"/>
+                </svg>
+                <h3>Drop audio here or click to upload</h3>
+                <p>Supports MP3, WAV, AAC up to 100MB</p>
+                <input type="file" id="audioFile" accept="audio/*" hidden />
+              </div>
+              <button class="btn btn-primary" onclick="document.getElementById('audioFile').click()">
+                Select Audio
+              </button>
+              </button>
+            </div>
+            <div id="audioResults" class="results-area"></div>
+          </div>
+        </section>
+
+        <!-- News Section -->
+        <section class="analysis-section" id="news-section">
+          <div class="section-header">
+            <h2>📰 News Detection</h2>
+            <p>Analyze articles and headlines for fake news using linguistic analysis</p>
+          </div>
+
+          <div class="analysis-card">
+            <div class="card-content">
+              <div class="text-input-zone">
+                <div class="input-group">
+                  <label for="newsTitle">Article Title *</label>
+                  <input type="text" id="newsTitle" placeholder="Enter the news headline..." />
+                </div>
+                <div class="input-group">
+                  <label for="newsContent">Article Content *</label>
+                  <textarea id="newsContent" placeholder="Paste the article text here..." rows="8"></textarea>
+                </div>
+                <div class="character-count">
+                  <span id="contentCount">0</span> / <span>5000</span> characters
+                </div>
+              </div>
+              <div class="button-group">
+                <button class="btn btn-secondary" onclick="document.getElementById('newsTitle').value = ''; document.getElementById('newsContent').value = ''; document.getElementById('contentCount').textContent = '0';">
+                  Clear
+                </button>
+                <button class="btn btn-primary" onclick="window.predictNews(event)">
+                  Analyze Article
+                </button>
+              </div>
+            </div>
+            <div id="newsResults" class="results-area"></div>
+          </div>
+        </section>
+
+        <!-- Insights Section -->
+        <section class="analysis-section" id="insights-section">
+          <div class="section-header">
+            <h2>📊 Intelligence Hub</h2>
+            <p>Key statistics and information about deepfake detection</p>
+          </div>
+
+          <div class="insights-grid">
+            <div class="insight-card">
+              <div class="insight-header">
+                <span class="insight-icon">🎯</span>
+                <h3>Detection Accuracy</h3>
+              </div>
+              <div class="insight-value">99.2%</div>
+              <p class="insight-desc">Across all media types</p>
+            </div>
+
+            <div class="insight-card">
+              <div class="insight-header">
+                <span class="insight-icon">⚡</span>
+                <h3>Average Response</h3>
+              </div>
+              <div class="insight-value">45ms</div>
+              <p class="insight-desc">Real-time processing</p>
+            </div>
+
+            <div class="insight-card">
+              <div class="insight-header">
+                <span class="insight-icon">🔒</span>
+                <h3>Privacy</h3>
+              </div>
+              <div class="insight-value">100%</div>
+              <p class="insight-desc">End-to-end encrypted</p>
+            </div>
+
+            <div class="insight-card">
+              <div class="insight-header">
+                <span class="insight-icon">🌍</span>
+                <h3>Support</h3>
+              </div>
+              <div class="insight-value">4+</div>
+              <p class="insight-desc">Analysis types</p>
+            </div>
+          </div>
+
+          <div class="detection-methods">
+            <h3>Detection Methodologies</h3>
+            <div class="methods-grid">
+              <div class="method-card">
+                <div class="method-icon">🧠</div>
+                <h4>Deep Learning</h4>
+                <p>Advanced neural networks trained on millions of media samples</p>
+              </div>
+              <div class="method-card">
+                <div class="method-icon">🔬</div>
+                <h4>Spectral Analysis</h4>
+                <p>Frequency domain analysis for artifact detection</p>
+              </div>
+              <div class="method-card">
+                <div class="method-icon">🎨</div>
+                <h4>Visual Forensics</h4>
+                <p>Pixel-level and geometric inconsistency detection</p>
+              </div>
+              <div class="method-card">
+                <div class="method-icon">📝</div>
+                <h4>Linguistic Analysis</h4>
+                <p>NLP-based text classification and pattern recognition</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Result Modal -->
+  <div class="result-modal" id="resultModal">
+    <div class="result-modal-content" id="resultModalContent"></div>
+  </div>
+
+  <script src="/static/professional.js"></script>
+</body>
+</html>

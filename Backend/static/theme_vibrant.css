@@ -1,0 +1,122 @@
+/* Modern Vibrant Professional Theme - Purple & Teal */
+:root {
+  --bg-primary: #f5f7fa;
+  --bg-secondary: #e4e9f7;
+  --bg-tertiary: #c3cbe6;
+  --bg-accent: #7f5af0;
+
+  --text-primary: #232946;
+  --text-secondary: #6d6a7c;
+  --text-muted: #a7a9be;
+
+  --accent-primary: #7f5af0;
+  --accent-secondary: #2cb67d;
+  --accent-success: #2cb67d;
+  --accent-warning: #ffd803;
+  --accent-danger: #ef4565;
+
+  --gradient-primary: linear-gradient(135deg, #7f5af0 0%, #2cb67d 100%);
+  --gradient-secondary: linear-gradient(135deg, #232946 0%, #7f5af0 100%);
+  --gradient-accent: linear-gradient(135deg, #2cb67d 0%, #7f5af0 100%);
+
+  --shadow-sm: 0 1px 2px 0 rgba(127, 90, 240, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(44, 182, 125, 0.1), 0 2px 4px -1px rgba(127, 90, 240, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(127, 90, 240, 0.1), 0 4px 6px -2px rgba(44, 182, 125, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(127, 90, 240, 0.1), 0 10px 10px -5px rgba(44, 182, 125, 0.04);
+  --shadow-glow: 0 0 20px rgba(127, 90, 240, 0.2);
+
+  --border-primary: 1px solid #7f5af0;
+  --border-accent: 2px solid #2cb67d;
+
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] {
+  --bg-primary: #232946;
+  --bg-secondary: #1a1a2e;
+  --bg-tertiary: #121629;
+  --bg-accent: #7f5af0;
+  --text-primary: #f5f7fa;
+  --text-secondary: #a7a9be;
+  --text-muted: #6d6a7c;
+  --border-primary: 1px solid #7f5af0;
+  --shadow-glow: 0 0 20px rgba(44, 182, 125, 0.2);
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+
+nav, .navbar, .shell {
+  background: var(--bg-secondary);
+  box-shadow: var(--shadow-md);
+}
+
+.nav-link, .nav-brand span {
+  color: var(--accent-primary);
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.nav-link.active, .nav-link:hover {
+  color: var(--accent-secondary);
+}
+
+button, .btn {
+  background: var(--gradient-primary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5em 1.2em;
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+button:hover, .btn:hover {
+  background: var(--gradient-accent);
+  box-shadow: var(--shadow-glow);
+}
+
+input, textarea, select {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: var(--border-primary);
+  border-radius: 4px;
+  padding: 0.5em;
+  margin: 0.3em 0;
+  transition: border 0.2s;
+}
+
+input:focus, textarea:focus, select:focus {
+  border: var(--border-accent);
+  outline: none;
+}
+
+.card, .panel, .section {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  padding: 1.5em;
+  margin: 1em 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--accent-primary);
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-weight: 700;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: var(--bg-tertiary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 8px;
+}

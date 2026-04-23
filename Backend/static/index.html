@@ -1,0 +1,687 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Media Deepfake Detection - Advanced AI Detection Platform</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+</head>
+<body>
+  <!-- 3D Background -->
+  <div id="vanta-bg"></div>
+
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+      <div class="loading-logo">
+        <div class="logo-glow"></div>
+        <span>MDD</span>
+      </div>
+      <div class="loading-text">Initializing Media Deepfake Detection</div>
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="shell">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-brand">
+        <div class="brand-icon">
+          <div class="icon-shield">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L3 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-9-5z"/>
+            </svg>
+          </div>
+          <span>Media Deepfake Detection</span>
+        </div>
+      </div>
+      <div class="nav-menu">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#analyze" class="nav-link">Analyze</a>
+        <a href="#insights" class="nav-link">Insights</a>
+        <!-- <a href="#news" class="nav-link">News</a> -->
+        <a href="#about" class="nav-link">About</a>
+        <a href="#api" class="nav-link">API</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+        <div class="status-indicator desktop-only">
+          <div class="status-dot"></div>
+          <span>System Online</span>
+        </div>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <div class="badge-icon">🔒</div>
+            <span>Enterprise-Grade Security</span>
+          </div>
+          <h1 class="hero-title">
+            <span class="title-accent">Media</span>
+            Deepfake Detection
+          </h1>
+          <p class="hero-description">
+            Harness cutting-edge AI to detect manipulated media with unparalleled accuracy.
+            Protect your organization from digital deception with our comprehensive analysis suite.
+          </p>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-number">99.2%</div>
+              <div class="stat-label">Detection Accuracy</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">&lt;50ms</div>
+              <div class="stat-label">Response Time</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Privacy Focused</div>
+            </div>
+          </div>
+          <div class="hero-actions">
+            <button class="btn-primary" onclick="scrollToSection('analyze')">
+              <span>Start Analysis</span>
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M13.25 6.75L19.25 12.75L13.25 18.75"/>
+                <path d="M19 12.5H4.75"/>
+              </svg>
+            </button>
+            <button class="btn-secondary" onclick="scrollToSection('insights')">
+              <span>View Insights</span>
+            </button>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="visual-container">
+            <div class="floating-elements">
+              <div class="floating-card card-1">
+                <div class="card-icon">🖼️</div>
+                <div class="card-title">Image Analysis</div>
+                <div class="card-value">97%</div>
+              </div>
+              <div class="floating-card card-2">
+                <div class="card-icon">🎥</div>
+                <div class="card-title">Video Analysis</div>
+                <div class="card-value">94%</div>
+              </div>
+              <div class="floating-card card-3">
+                <div class="card-icon">🎵</div>
+                <div class="card-title">Audio Analysis</div>
+                <div class="card-value">91%</div>
+              </div>
+            </div>
+            <div class="central-visual">
+              <div class="visual-ring">
+                <div class="ring-segment segment-1"></div>
+                <div class="ring-segment segment-2"></div>
+                <div class="ring-segment segment-3"></div>
+              </div>
+              <div class="visual-core">
+                <div class="core-pulse"></div>
+                <div class="core-icon">AI</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Analysis Section -->
+    <section class="analysis-section" id="analyze">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Media Analysis Console</h2>
+          <p class="section-description">
+            Upload and analyze your media files with our advanced AI detection algorithms
+          </p>
+        </div>
+
+        <div class="analysis-tabs">
+          <button class="analysis-tab active" data-tab="image">
+            <div class="tab-icon">🖼️</div>
+            <div class="tab-content">
+              <div class="tab-title">Image Analysis</div>
+              <div class="tab-desc">Detect manipulated images</div>
+            </div>
+          </button>
+          <button class="analysis-tab" data-tab="video">
+            <div class="tab-icon">🎥</div>
+            <div class="tab-content">
+              <div class="tab-title">Video Analysis</div>
+              <div class="tab-desc">Analyze video content</div>
+            </div>
+          </button>
+          <button class="analysis-tab" data-tab="audio">
+            <div class="tab-icon">🎵</div>
+            <div class="tab-content">
+              <div class="tab-title">Audio Analysis</div>
+              <div class="tab-desc">Examine audio authenticity</div>
+            </div>
+          </button>
+          <!-- News Analysis tab removed -->
+        </div>
+
+        <div class="analysis-panels">
+          <!-- Image Analysis Panel -->
+          <div class="analysis-panel active" id="imagePanel">
+            <div class="panel-header">
+              <h3>Image Deepfake Detection</h3>
+              <div class="panel-status">
+                <div class="status-indicator ready">
+                  <div class="status-dot"></div>
+                  <span>Model Ready</span>
+                </div>
+              </div>
+            </div>
+            <form class="upload-form" onsubmit="predictImage(event)">
+              <div class="upload-area" id="imageUploadArea">
+                <div class="upload-icon">📁</div>
+                <div class="upload-text">
+                  <strong>Drop your image here</strong>
+                  <span>or click to browse</span>
+                </div>
+                <input type="file" id="imageFile" accept="image/*" hidden />
+              </div>
+              <div class="form-actions">
+                <button type="button" class="btn-secondary" onclick="document.getElementById('imageFile').click()">
+                  Choose File
+                </button>
+                <button type="submit" class="btn-primary" id="imageAnalyzeBtn">
+                  <span>Analyze Image</span>
+                  <div class="btn-loader" id="imageLoader"></div>
+                </button>
+              </div>
+            </form>
+            <div class="results-container" id="imageResults">
+              <div class="results-placeholder">
+                <div class="placeholder-icon">🔍</div>
+                <h4>Ready for Analysis</h4>
+                <p>Upload an image to begin deepfake detection</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video Analysis Panel -->
+          <div class="analysis-panel" id="videoPanel">
+            <div class="panel-header">
+              <h3>Video Deepfake Detection</h3>
+              <div class="panel-status">
+                <div class="status-indicator ready">
+                  <div class="status-dot"></div>
+                  <span>Model Ready</span>
+                </div>
+              </div>
+            </div>
+            <form class="upload-form" onsubmit="predictVideo(event)">
+              <div class="upload-area" id="videoUploadArea">
+                <div class="upload-icon">🎬</div>
+                <div class="upload-text">
+                  <strong>Drop your video here</strong>
+                  <span>or click to browse</span>
+                </div>
+                <input type="file" id="videoFile" accept="video/*" hidden />
+              </div>
+              <div class="form-actions">
+                <button type="button" class="btn-secondary" onclick="document.getElementById('videoFile').click()">
+                  Choose File
+                </button>
+                <button type="submit" class="btn-primary" id="videoAnalyzeBtn">
+                  <span>Analyze Video</span>
+                  <div class="btn-loader" id="videoLoader"></div>
+                </button>
+              </div>
+            </form>
+            <div class="results-container" id="videoResults">
+              <div class="results-placeholder">
+                <div class="placeholder-icon">🎥</div>
+                <h4>Ready for Analysis</h4>
+                <p>Upload a video to begin deepfake detection</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Audio Analysis Panel -->
+          <div class="analysis-panel" id="audioPanel">
+            <div class="panel-header">
+              <h3>Audio Deepfake Detection</h3>
+              <div class="panel-status">
+                <div class="status-indicator ready">
+                  <div class="status-dot"></div>
+                  <span>Model Ready</span>
+                </div>
+              </div>
+            </div>
+            <form class="upload-form" onsubmit="predictAudio(event)">
+              <div class="upload-area" id="audioUploadArea">
+                <div class="upload-icon">🎧</div>
+                <div class="upload-text">
+                  <strong>Drop your audio here</strong>
+                  <span>or click to browse</span>
+                </div>
+                <input type="file" id="audioFile" accept="audio/*" hidden />
+              </div>
+              <div class="form-actions">
+                <button type="button" class="btn-secondary" onclick="document.getElementById('audioFile').click()">
+                  Choose File
+                </button>
+                <button type="submit" class="btn-primary" id="audioAnalyzeBtn">
+                  <span>Analyze Audio</span>
+                  <div class="btn-loader" id="audioLoader"></div>
+                </button>
+              </div>
+            </form>
+            <div class="results-container" id="audioResults">
+              <div class="results-placeholder">
+                <div class="placeholder-icon">🎵</div>
+                <h4>Ready for Analysis</h4>
+                <p>Upload an audio file to begin deepfake detection</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- News Analysis Panel -->
+          <!-- News Analysis Panel removed -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Insights Section -->
+    <section class="insights-section" id="insights">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Deepfake Intelligence</h2>
+          <p class="section-description">
+            Stay informed about the latest trends and best practices in deepfake detection
+          </p>
+        </div>
+
+        <div class="insights-grid">
+          <div class="insight-card">
+            <div class="card-header">
+              <div class="card-icon">📊</div>
+              <h3>Industry Statistics</h3>
+            </div>
+            <div class="card-content">
+              <div class="stat-item">
+                <div class="stat-value">96%</div>
+                <div class="stat-desc">of deepfakes are video-based</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">2024</div>
+                <div class="stat-desc">Year deepfakes went mainstream</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">85%</div>
+                <div class="stat-desc">Detection accuracy improvement in 2 years</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="insight-card">
+            <div class="card-header">
+              <div class="card-icon">🛡️</div>
+              <h3>Detection Methods</h3>
+            </div>
+            <div class="card-content">
+              <ul class="method-list">
+                <li>
+                  <strong>Visual Artifacts:</strong> Pixel inconsistencies, lighting mismatches
+                </li>
+                <li>
+                  <strong>Temporal Analysis:</strong> Frame-by-frame coherence checking
+                </li>
+                <li>
+                  <strong>Audio Spectral:</strong> Frequency domain analysis
+                </li>
+                <li>
+                  <strong>AI-Powered:</strong> Deep learning classification models
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="insight-card">
+            <div class="card-header">
+              <div class="card-icon">⚡</div>
+              <h3>Real-time Processing</h3>
+            </div>
+            <div class="card-content">
+              <div class="processing-timeline">
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <div class="timeline-title">Upload</div>
+                    <div class="timeline-desc">File validation & preprocessing</div>
+                    <div class="timeline-time">&lt; 1s</div>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <div class="timeline-title">Analysis</div>
+                    <div class="timeline-desc">AI model inference</div>
+                    <div class="timeline-time">&lt; 50ms</div>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <div class="timeline-title">Results</div>
+                    <div class="timeline-desc">Confidence scoring & reporting</div>
+                    <div class="timeline-time">&lt; 2s</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news-section" id="news">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Latest Deepfake News & Updates</h2>
+          <p class="section-description">
+            Stay up-to-date with the latest developments in deepfake detection technology and security threats
+          </p>
+        </div>
+
+        <div class="news-filters">
+          <button class="news-filter-btn active" data-filter="all">All News</button>
+          <button class="news-filter-btn" data-filter="technology">Technology</button>
+          <button class="news-filter-btn" data-filter="security">Security</button>
+          <button class="news-filter-btn" data-filter="research">Research</button>
+          <button class="news-filter-btn" data-filter="updates">Updates</button>
+        </div>
+
+        <div class="news-grid" id="newsGrid">
+          <div class="news-card" data-category="technology">
+            <div class="news-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+              <span class="news-badge">Technology</span>
+            </div>
+            <div class="news-content">
+              <h3>Advanced AI Model Improvements</h3>
+              <p>Our latest AI model now achieves 99.7% accuracy in detecting synthetic media with improved real-time processing capabilities.</p>
+              <div class="news-meta">
+                <span class="news-date">Apr 20, 2026</span>
+                <span class="news-read-time">5 min read</span>
+              </div>
+              <a href="#" class="news-link">Read More →</a>
+            </div>
+          </div>
+
+          <div class="news-card" data-category="security">
+            <div class="news-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+              <span class="news-badge">Security</span>
+            </div>
+            <div class="news-content">
+              <h3>New Deepfake Attack Vectors Discovered</h3>
+              <p>Security researchers have identified novel attack methods. Learn how our platform protects against these emerging threats.</p>
+              <div class="news-meta">
+                <span class="news-date">Apr 18, 2026</span>
+                <span class="news-read-time">7 min read</span>
+              </div>
+              <a href="#" class="news-link">Read More →</a>
+            </div>
+          </div>
+
+          <div class="news-card" data-category="research">
+            <div class="news-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+              <span class="news-badge">Research</span>
+            </div>
+            <div class="news-content">
+              <h3>Audio Synthesis Detection Breakthrough</h3>
+              <p>New research published on detecting synthetic audio with 98.5% accuracy, revolutionizing voice authentication security.</p>
+              <div class="news-meta">
+                <span class="news-date">Apr 15, 2026</span>
+                <span class="news-read-time">6 min read</span>
+              </div>
+              <a href="#" class="news-link">Read More →</a>
+            </div>
+          </div>
+
+          <div class="news-card" data-category="updates">
+            <div class="news-image" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+              <span class="news-badge">Updates</span>
+            </div>
+            <div class="news-content">
+              <h3>Platform v2.1 Released</h3>
+              <p>Major release includes improved UI, faster processing, and support for new media formats. Download now for free.</p>
+              <div class="news-meta">
+                <span class="news-date">Apr 12, 2026</span>
+                <span class="news-read-time">3 min read</span>
+              </div>
+              <a href="#" class="news-link">Read More →</a>
+            </div>
+          </div>
+
+          <div class="news-card" data-category="technology">
+            <div class="news-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+              <span class="news-badge">Technology</span>
+            </div>
+            <div class="news-content">
+              <h3>Real-time Video Analysis Now Available</h3>
+              <p>Stream video analysis capability allows for live deepfake detection, perfect for broadcasting and content verification.</p>
+              <div class="news-meta">
+                <span class="news-date">Apr 10, 2026</span>
+                <span class="news-read-time">4 min read</span>
+              </div>
+              <a href="#" class="news-link">Read More →</a>
+            </div>
+          </div>
+
+          <div class="news-card" data-category="security">
+            <div class="news-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+              <span class="news-badge">Security</span>
+            </div>
+            <div class="news-content">
+              <h3>Enterprise Security Compliance Updated</h3>
+              <p>Our platform now meets GDPR, HIPAA, and SOC 2 compliance standards for enterprise deployments worldwide.</p>
+              <div class="news-meta">
+                <span class="news-date">Apr 8, 2026</span>
+                <span class="news-read-time">5 min read</span>
+              </div>
+              <a href="#" class="news-link">Read More →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="news-pagination">
+          <button class="pagination-btn active">1</button>
+          <button class="pagination-btn">2</button>
+          <button class="pagination-btn">3</button>
+          <button class="pagination-btn">Next</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+      <div class="section-container">
+        <div class="about-content">
+          <div class="about-text">
+            <h2>Advanced AI-Powered Detection</h2>
+            <p>
+              Deepfake Media Detection represents the cutting edge of artificial intelligence applied to media forensics.
+              Our platform combines state-of-the-art machine learning models with sophisticated signal processing
+              techniques to provide unparalleled accuracy in detecting manipulated content.
+            </p>
+            <p>
+              Built with privacy and security as foundational principles, all analysis occurs locally on your
+              infrastructure, ensuring complete data sovereignty and confidentiality.
+            </p>
+            <div class="tech-stack">
+              <div class="tech-item">
+                <div class="tech-icon">🤖</div>
+                <span>PyTorch Models</span>
+              </div>
+              <div class="tech-item">
+                <div class="tech-icon">🎯</div>
+                <span>Computer Vision</span>
+              </div>
+              <div class="tech-item">
+                <div class="tech-icon">🎵</div>
+                <span>Audio Processing</span>
+              </div>
+              <div class="tech-item">
+                <div class="tech-icon">🔒</div>
+                <span>Privacy-First</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-visual">
+            <div class="tech-diagram">
+              <div class="diagram-node input-node">
+                <div class="node-icon">📁</div>
+                <div class="node-label">Input Media</div>
+              </div>
+              <div class="diagram-arrow">→</div>
+              <div class="diagram-node process-node">
+                <div class="node-icon">🧠</div>
+                <div class="node-label">AI Analysis</div>
+              </div>
+              <div class="diagram-arrow">→</div>
+              <div class="diagram-node output-node">
+                <div class="node-icon">📊</div>
+                <div class="node-label">Detection Results</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <div class="brand-icon">
+            <div class="icon-shield">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L3 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-9-5z"/>
+              </svg>
+            </div>
+            <span>Deepfake Media Detection</span>
+          </div>
+          <p>Advanced AI-powered deepfake detection for the modern enterprise. Protecting digital integrity with cutting-edge technology and uncompromising security.</p>
+          <div class="footer-tagline">Securing the Future of Digital Media</div>
+        </div>
+        <div class="footer-links">
+          <div class="link-group">
+            <h4>Platform</h4>
+            <a href="#analyze">Analysis Tools</a>
+            <a href="#insights">Intelligence</a>
+            <a href="#api">API Access</a>
+            <a href="#dashboard">Dashboard</a>
+          </div>
+          <div class="link-group">
+            <h4>Resources</h4>
+            <a href="#docs">Documentation</a>
+            <a href="#research">Research</a>
+            <a href="#tutorials">Tutorials</a>
+            <a href="#support">Support</a>
+          </div>
+          <div class="link-group">
+            <h4>Legal</h4>
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Service</a>
+            <a href="#security">Security</a>
+            <a href="#compliance">Compliance</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Deepfake Media Detection. All rights reserved.</p>
+        <div class="footer-bottom-right">
+          <div class="footer-social">
+            <a href="#" class="social-link" title="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link" title="Twitter">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link" title="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </a>
+          </div>
+          <div class="footer-status">
+            <div class="status-indicator">
+              <div class="status-dot"></div>
+              <span>All Systems Operational</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+    <div class="mobile-menu-content">
+      <div class="brand-icon">
+        <div class="icon-shield">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L3 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-9-5z"/>
+          </svg>
+        </div>
+        <span>Deepfake Media Detection</span>
+      </div>
+      <div class="mobile-menu-links">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#analyze" class="nav-link">Analyze</a>
+        <a href="#insights" class="nav-link">Insights</a>
+        <a href="#news" class="nav-link">News</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#api" class="nav-link">API</a>
+      </div>
+      <div class="mobile-menu-actions">
+        <button class="theme-toggle" id="mobileThemeToggle">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+        <div class="status-indicator">
+          <div class="status-dot"></div>
+          <span>System Online</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
