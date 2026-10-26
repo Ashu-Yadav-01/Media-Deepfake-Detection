@@ -53,9 +53,7 @@ class AudioClassifier(nn.Module):
         return self.classifier(feats)
 
 
-# ==============================
 # IMAGE CLASSIFIER - ResNet18
-# ==============================
 class ImageClassifier(nn.Module):
     """ResNet18-based classifier for deepfake detection"""
     def __init__(self):
