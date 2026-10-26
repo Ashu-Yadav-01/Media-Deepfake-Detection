@@ -13,9 +13,7 @@ from PIL import Image
 
 device = torch.device('cpu')
 
-# ==============================
 # Simple ResNet18-based Classifier
-# ==============================
 class ImageClassifier(nn.Module):
     """Simple CNN classifier for deepfake detection"""
     def __init__(self):
@@ -42,9 +40,7 @@ class ImageClassifier(nn.Module):
         return self.classifier(feats)
 
 
-# ==============================
 # LOAD MODEL
-# ==============================
 print("Creating model...")
 model = ImageClassifier()
 
@@ -68,9 +64,7 @@ model.eval()
 print("✅ Model ready for inference")
 
 
-# ==============================
 # PREDICTION FUNCTION
-# ==============================
 def predict_image(img_path):
     """
     Predict if image is real or fake
@@ -103,10 +97,7 @@ def predict_image(img_path):
         print(f"Error predicting image: {e}")
         return None, None
 
-
-# ==============================
 # MAIN
-# ==============================
 if __name__ == "__main__":
     import os
     
