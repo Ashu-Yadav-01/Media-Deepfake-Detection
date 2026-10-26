@@ -17,10 +17,8 @@ audio_model = None
 device = None
 torch = None  # Will be set when models are loaded
 
-# ==============================
 # LAZY MODEL LOADING WITH EVERYTHING
-# ==============================
-print("✅ Initializing models...")
+print(" Initializing models...")
 
 def load_models():
     global model, audio_model, device
@@ -35,9 +33,8 @@ def load_models():
     global torch  # Make torch available globally
     torch = torch
 
-    # ==============================
+
     # AUDIO CLASSIFIER
-    # ==============================
     class AudioClassifier(nn.Module):
         def __init__(self):
             super().__init__()
@@ -70,10 +67,7 @@ def load_models():
             feats = feats.view(feats.size(0), -1)
             return self.classifier(feats)
 
-
-    # ==============================
     # IMAGE CLASSIFIER - CNN
-    # ==============================
     class ImageClassifier(nn.Module):
         """CNN-based classifier for deepfake detection"""
         def __init__(self):
