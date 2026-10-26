@@ -9,9 +9,7 @@ from torch.utils.data import Dataset, DataLoader
 from torchvision.models.video import r3d_18
 
 
-# ------------------------------------------------------
-# ✅ DATASET
-# ------------------------------------------------------
+#  DATASET
 class VideoDataset(Dataset):
     def __init__(self, root, label, num_frames=8):
         self.video_paths = [
@@ -61,9 +59,7 @@ class VideoDataset(Dataset):
         return video_tensor, torch.tensor(self.label)
 
 
-# ------------------------------------------------------
-# ✅ VIDEO MODEL
-# ------------------------------------------------------
+#  VIDEO MODEL
 class VideoClassifier(nn.Module):
     def __init__(self):
         super().__init__()
@@ -75,10 +71,7 @@ class VideoClassifier(nn.Module):
     def forward(self, x):
         return self.model(x)
 
-
-# ------------------------------------------------------
-# ✅ TRAINING FUNCTION
-# ------------------------------------------------------
+# TRAINING FUNCTION
 def train_video_model():
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -122,8 +115,6 @@ def train_video_model():
     print("✅ Saved video_classifier.pth")
 
 
-# ------------------------------------------------------
-# ✅ RUN TRAINING
-# ------------------------------------------------------
+# RUN TRAINING
 if __name__ == "__main__":
     train_video_model()
