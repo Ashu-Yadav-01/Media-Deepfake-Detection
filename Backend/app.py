@@ -26,9 +26,7 @@ app.add_middleware(
 )
 app.mount("/static", StaticFiles(directory=os.path.join(BASE_DIR, "static")), name="static")
 
-# =====================================================================================
-# ✅ AUDIO CLASSIFIER
-# =====================================================================================
+# AUDIO CLASSIFIER
 class AudioClassifier(nn.Module):
     def __init__(self):
         super().__init__()
@@ -71,9 +69,7 @@ try:
 except:
     print("⚠️  Audio model file not found")
 
-# =====================================================================================
-# ✅ IMAGE CLASSIFIER (Matches your training script")
-# =====================================================================================
+# IMAGE CLASSIFIER (Matches your training script")
 class ImageClassifier(nn.Module):
     def __init__(self):
         super().__init__()
@@ -94,7 +90,7 @@ class ImageClassifier(nn.Module):
         return out
 
 
-# ✅ Load image model
+#  Load image model
 image_model = ImageClassifier()
 image_model.load_state_dict(torch.load(os.path.join(BASE_DIR, "image_classifier.pth"), map_location="cpu"))
 image_model.eval()
@@ -107,9 +103,7 @@ img_transform = transforms.Compose([
 ])
 
 
-# =====================================================================================
-# ✅ IMAGE API
-# =====================================================================================
+# IMAGE API
 @app.post("/predict_image")
 async def predict_image(file: UploadFile = File(...)):
     content = await file.read()
@@ -238,10 +232,7 @@ Confidence factors:
         "techniques_used": ["DCT frequency analysis", "GANomaly detection", "Facial landmark analysis", "Spectral fingerprinting"]
     }
 
-
-# =====================================================================================
-# ✅ VIDEO CLASSIFIER (EXACT TRAINED MODEL)
-# =====================================================================================
+# VIDEO CLASSIFIER (EXACT TRAINED MODEL)
 class VideoClassifier(nn.Module):
     def __init__(self):
         super().__init__()
@@ -259,9 +250,7 @@ video_model.load_state_dict(torch.load(os.path.join(BASE_DIR, "video_classifier.
 video_model.eval()
 
 
-# =====================================================================================
-# ✅ Extract Frames (Matches training)
-# =====================================================================================
+# Extract Frames (Matches training)
 def extract_frames(video_bytes, num_frames=8):
     temp_video_path = os.path.join(BASE_DIR, "temp_video.mp4")
     with open(temp_video_path, "wb") as f:
@@ -301,10 +290,7 @@ def extract_frames(video_bytes, num_frames=8):
 
     return frames.unsqueeze(0)            # (1, C, T, H, W)
 
-
-# =====================================================================================
-# ✅ VIDEO API
-# =====================================================================================
+#  VIDEO API
 @app.post("/predict_video")
 async def predict_video(file: UploadFile = File(...)):
     video_bytes = await file.read()
@@ -463,10 +449,7 @@ Synthesis method indicators:
         "techniques_used": ["Optical flow analysis", "Temporal frequency analysis", "3D face geometry tracking", "Facial landmark trajectory analysis"]
     }
 
-
-# =====================================================================================
-# ✅ AUDIO API
-# =====================================================================================
+# AUDIO API
 @app.post("/predict_audio")
 async def predict_audio(file: UploadFile = File(...)):
     """Predict if audio is real or fake with detailed analysis"""
