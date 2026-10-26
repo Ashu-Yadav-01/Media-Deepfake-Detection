@@ -5,7 +5,7 @@ Lazy loading version to avoid torch._dynamo issues
 import os
 os.environ['TORCH_COMPILE_DISABLE'] = '1'
 
-# Defer torch imports to avoid dynamo issues
+# Defer torch imports to avoid dynamo issue
 import torch
 import torch.nn as nn
 import cv2
@@ -18,9 +18,8 @@ model = None
 audio_model = None
 device = None
 
-# ==============================
 # AUDIO CLASSIFIER
-# ==============================
+
 class AudioClassifier(nn.Module):
     def __init__(self):
         super().__init__()
@@ -78,10 +77,7 @@ class ImageClassifier(nn.Module):
         feats = self.features(x)
         return self.classifier(feats)
 
-
-# ==============================
 # LAZY MODEL LOADING
-# ==============================
 print("✅ Initializing models...")
 
 # Global model variables
@@ -136,9 +132,7 @@ def load_models():
     print("✅ Models ready for inference\n")
 
 
-# ==============================
 # PREDICTION FUNCTION
-# ==============================
 def predict_image(img_path):
     """Predict if image is real or fake"""
     try:
@@ -168,10 +162,7 @@ def predict_image(img_path):
         print(f"❌ Error: {e}")
         return None, None
 
-
-# ==============================
 # AUDIO PREDICTION FUNCTION
-# ==============================
 def predict_audio(audio_path, sample_rate=16000, duration=3):
     """Predict if audio is real or fake"""
     try:
@@ -229,10 +220,7 @@ def predict_audio(audio_path, sample_rate=16000, duration=3):
         print(f"❌ Error processing {audio_path}: {e}")
         return None, None
 
-
-# ==============================
 # MAIN EXECUTION
-# ==============================
 if __name__ == "__main__":
     print("=" * 60)
     print("  DEEPFAKE DETECTION SYSTEM - IMAGE, VIDEO & AUDIO")
