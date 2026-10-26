@@ -10,10 +10,7 @@ from scipy.io import wavfile
 import warnings
 warnings.filterwarnings('ignore')
 
-
-# ==============================
 # AUDIO DATASET
-# ==============================
 class AudioDataset(Dataset):
     def __init__(self, root, label, sample_rate=16000, duration=3):
         """
@@ -73,9 +70,7 @@ class AudioDataset(Dataset):
         return audio.unsqueeze(0), torch.tensor(self.label)  # (1, n_samples), label
 
 
-# ==============================
 # AUDIO CLASSIFIER MODEL
-# ==============================
 class AudioClassifier(nn.Module):
     def __init__(self):
         super().__init__()
@@ -110,10 +105,7 @@ class AudioClassifier(nn.Module):
         feats = feats.view(feats.size(0), -1)
         return self.classifier(feats)
 
-
-# ==============================
 # TRAINING FUNCTION
-# ==============================
 def train_audio_model():
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print("Using device:", device)
@@ -176,10 +168,7 @@ def train_audio_model():
 
     return model
 
-
-# ==============================
 # RUN TRAINING
-# ==============================
 if __name__ == "__main__":
     print("=" * 60)
     print("TRAINING AUDIO CLASSIFIER FOR DEEPFAKE DETECTION")
