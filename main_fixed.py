@@ -14,9 +14,7 @@ from PIL import Image
 
 device = torch.device('cpu')
 
-# ==============================
 # MODEL - ResNet18 Based Classifier
-# ==============================
 def create_model():
     """Create ResNet18-based classifier, avoiding torch._dynamo hang"""
     print("Creating ResNet18 classifier...", flush=True)
@@ -56,7 +54,7 @@ def create_model():
         return model
         
     except Exception as e:
-        print(f"⚠️  Could not create ResNet18 model: {e}", flush=True)
+        print(f"  Could not create ResNet18 model: {e}", flush=True)
         print("Using fallback model...", flush=True)
         
         # Fallback to simple CNN
@@ -84,10 +82,7 @@ def create_model():
         
         return SimpleClassifier()
 
-
-# ==============================
 # LOAD MODEL
-# ==============================
 print("✅ Initializing model...", flush=True)
 model = create_model()
 print("✅ Model created", flush=True)
@@ -110,9 +105,7 @@ model.eval()
 print("✅ Model ready for inference\n", flush=True)
 
 
-# ==============================
 # PREDICTION FUNCTION
-# ==============================
 def predict_image(img_path, use_gradcam=False):
     """
     Predict if image is real or fake
@@ -148,9 +141,7 @@ def predict_image(img_path, use_gradcam=False):
         return None, None, None
 
 
-# ==============================
 # MAIN
-# ==============================
 if __name__ == "__main__":
     import os
     
